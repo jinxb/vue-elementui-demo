@@ -1,0 +1,7 @@
+@import './main.scss';
+
+// IE11 中图片样式乱的问题
+.el-image__inner--center {
+    top: 0%;
+    transform: translate(-50%, 0%)
+}
