@@ -64,30 +64,35 @@
 </template>
 
 <script>
+import HomeApi from 'services/home'
 export default {
   name: "FunRight",
   data() {
     return {
       currentIndex: 0,
       defaultNum: 0,
-      funList: [
-        "话费查询",
-        "流量查询",
-        "国际/港澳台",
-        "积分兑换",
-        "优惠专区",
-        "业务办理",
-      ],
+      funList: [],
       form: {
         phone: '',
         price: '',
         flux: '',
-        pricesInfo: ["30元", "50元", "100元", "300元", "其他"],
-        fluxInfo:["1G","2G","3G","5G","100G"]
+        pricesInfo: [],
+        fluxInfo:[]
       },
     };
   },
+  mounted() {
+    this.qryFunData()
+  },
   methods: {
+    qryFunData(){
+      HomeApi.getFunDataInfo().then(resp => {
+        console.log(resp);
+        this.funList = resp.funData.funList
+        this.form.pricesInfo = resp.funData.pricesInfo
+        this.form.fluxInfo = resp.funData.fluxInfo
+      })
+    },
     handleTag(index) {
       console.log(index);
       this.currentIndex = index;
@@ -179,6 +184,9 @@ export default {
       font: 14px/14px "microsoft yahei";
       color: #3eb4fa;
       border-bottom: 2px solid #3eb4fa;
+    }
+    .el-button:focus, .el-button:hover{
+      background-color: #fff;
     }
     .el-form {
     /* display: none; */

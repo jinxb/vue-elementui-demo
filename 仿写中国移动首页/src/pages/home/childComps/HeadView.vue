@@ -11,13 +11,13 @@
         <search></search>
       </div>
     </nav-bar>
-    <tab-control></tab-control>
+    <tab-control :navInfo="navInfo"></tab-control>
  </div>
 </template>
 
 <script>
 
-import {getHomeNavList} from 'services/home.js'
+import HomeApi from 'services/home.js'
 
 import HeadTop from 'components/content/headTop/HeadTop'
 import NavBar from 'components/common/navbar/NavBar'
@@ -37,26 +37,17 @@ export default {
       Search,
       TabControl,
     },
-  created() {
+  mounted() {
     this.getNavInfo()
   },
   methods: {
     getNavInfo(){
-      getHomeNavList().then(resp => {
-        this.navInfo = resp 
+      HomeApi.getNavconInfo().then(resp => {
         console.log(resp)
+        this.navInfo = resp.navInfo
       }).catch((err) => {
         
       });
-    //   this.$axios
-    //     .get("/api/zj_head/zj/5001257_209_617.json")
-    //     .then(res => {
-    //       console.log(res);
-    //       // }
-    //     })
-    //     .catch(e => {
-    //       console.log(e);
-    //     });
     }
   },
  }

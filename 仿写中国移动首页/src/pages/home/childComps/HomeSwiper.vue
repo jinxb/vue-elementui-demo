@@ -10,6 +10,9 @@
 </template>
 
 <script>
+
+import HomeApi from 'services/home'
+
 import Swiper from 'components/content/swiper/Swiper'
 import NavBusiness from 'components/content/navBusiness/NavBusiness'
 import FunRight from 'components/content/funRight/FunRight'
@@ -27,7 +30,7 @@ export default {
       bgIndex: '',
       bgc: '',
       currentIndex: 0,
-      banners: ['sw_1.jpg', 'sw_2.jpg' ,'sw_3.jpg', 'sw_4.jpg', 'sw_5.jpg', 'sw_6.jpg'],
+      banners: [],
     }
   },
   watch:{
@@ -58,9 +61,15 @@ export default {
   computed:{
   },
   mounted() {
+    this.qryDataAll()
     // console.log(this.$refs.swi);
   },
   methods: {
+    qryDataAll(){
+      HomeApi.getNavBannerInfo().then(resp => {
+        this.banners = resp.banners
+      })
+    },
     handleBgc(obj){
       this.bgIndex = obj.index
     }

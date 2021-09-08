@@ -1,7 +1,7 @@
 <template>
-  <div class="head_nav">
+  <div class="head_nav" :v-if="navInfo.length">
     <el-row class="nav">
-      <el-button type="text" v-for="(item,index) in navInfo" :key="item" :class="['active',{allService1:index === 0}]">{{ item }}</el-button>
+      <el-button type="text" v-for="(item,index) in navInfo" :key="item" :class="['active',{allService1:index === 0},{indexColor:index === 1}]">{{ item }}</el-button>
     </el-row>
  </div>
 </template>
@@ -13,7 +13,7 @@ export default {
     navInfo: {
       type: Array,
       default: function () {
-        return ['全部产品服务', '首页', '移动商城', '网上营业厅', '我的移动', '服务中心']
+        return []
       }
     }
   },
@@ -49,7 +49,7 @@ export default {
     text-align: center;
     color: #ffffff!important;
     }
-    indexColor{
+    .indexColor{
       color: #3eb4fa;
     }
     .el-button{
