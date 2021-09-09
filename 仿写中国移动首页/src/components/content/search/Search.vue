@@ -1,6 +1,10 @@
 <template>
   <div class="searchdiv">
-    <div class="searchbar searchbar2">
+    <div
+      class="searchbar"
+      :style="`background: url(${require(`assets/img/${imgName}`)}) no-repeat;`"
+      :class="{ patch: pNum === 2 }"
+    >
       <el-autocomplete
         class="el-input form-control"
         v-model="state"
@@ -10,16 +14,7 @@
         :trigger-on-focus="false"
       >
       </el-autocomplete>
-      <el-button
-        style="
-          position: absolute;
-          width: 80px;
-          height: 36px;
-          right: -1px;
-          top: 8px;
-          opacity: 0;
-        "
-      ></el-button>
+      <el-button :class="['searBtn', { patch2: pNum === 2 }]"></el-button>
     </div>
     <el-row style="float: left">
       <el-button
@@ -34,31 +29,25 @@
 </template>
 
 <script>
-import HomeApi from 'services/home'
 export default {
   name: "Search",
+  props: {
+    tipList: Array,
+    restaurants: Array,
+    imgName: String,
+    pNum: Number,
+  },
   data: function () {
     return {
       message: "headCon",
-      restaurants: [],
       state: "",
       timeout: null,
-      tipList: [],
     };
   },
   created: function () {},
-  mounted: function () {
-    this.qrySearchAll();
-  },
+  mounted: function () {},
   computed: {},
   methods: {
-    qrySearchAll() {
-      HomeApi.getSearchInfo().then(resp => {
-        const {searchDate, tipList} = resp
-        this.restaurants = searchDate
-        this.tipList = tipList
-      })
-    },
     querySearchAsync(queryString, cb) {
       var restaurants = this.restaurants;
       var results = queryString
@@ -83,42 +72,44 @@ export default {
   },
 };
 </script>
-
 <style lang="scss">
-.el-popper[x-placement^="bottom"] {
-  margin-top: 0;
-}
-.el-popper {
-  width: 422px !important;
-}
-.el-autocomplete-suggestion {
-  margin: 0px 0px 5px 0px;
-  border-radius: 0%;
-}
-.el-popper .popper__arrow,
-.el-popper .popper__arrow::after {
-  border-style: none;
-}
-.el-autocomplete-suggestion__wrap {
-  padding: 2px 0;
-  font-size: 14px;
-}
-.el-button--text {
-  color: #333333;
-}
-.selBtn {
-  color: #e40077;
-}
 .searchdiv {
   position: relative;
   float: right;
   margin-top: 22px;
   margin-top: 12px;
   box-sizing: border-box !important;
+  .el-popper[x-placement^="bottom"] {
+    margin-top: 0;
+  }
+  .el-popper {
+    width: 422px !important;
+  }
+  .el-autocomplete-suggestion {
+    margin: 0px 0px 5px 0px;
+    border-radius: 0%;
+  }
+  .el-popper .popper__arrow,
+  .el-popper .popper__arrow::after {
+    border-style: none;
+  }
+  .el-autocomplete-suggestion__wrap {
+    padding: 2px 0;
+    font-size: 14px;
+  }
+  .el-button--text {
+    color: #333333;
+  }
+  .selBtn {
+    color: #e40077;
+  }
   .el-button {
     padding: 0;
     font-size: 12px;
     vertical-align: text-top;
+  }
+  .el-button + .el-button {
+    margin-left: 18px;
   }
   .searchbar {
     border: 1px solid #3eb4fa;
@@ -146,9 +137,27 @@ export default {
       background: none;
     }
   }
+  .searBtn {
+    position: absolute;
+    width: 80px;
+    height: 36px;
+    right: -1px;
+    top: 8px;
+    opacity: 0;
+  }
+  .patch {
+    float: right;
+    width: 285px;
+    padding-top: 1px;
+    margin-right: 50px;
+  }
+  .patch2 {
+    right: 46px;
+    top: -1px;
+  }
 }
 
-.searchbar2 {
+/* .searchbar2 {
   background: url("../../../assets/img/searchBg_nor.png") no-repeat;
-}
+} */
 </style>

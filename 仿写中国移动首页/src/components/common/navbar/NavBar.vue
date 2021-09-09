@@ -1,9 +1,8 @@
 <template>
-  <div class="nav-bar">
-    <div class="left"><slot name="left"></slot></div>
+  <div class="nav-bar" :style="`height:${height}`">
+    <div class="left"><slot name="left" :style="`width:${lWidth}`"></slot></div>
     <div class="center"><slot name="center"></slot></div>
-    <div class="right"><slot name="right"></slot></div>
-    {{lWidth}}
+    <div class="right"><slot name="right" :style="`width:${rWidth}`"></slot></div>
   </div>
 </template>
 

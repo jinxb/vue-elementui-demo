@@ -125,6 +125,31 @@ const tipList = [
   "流量可选包",
   "彩铃",
 ]
+const cityData = {
+  cityInfo:{
+    province:'浙江',
+    busi:'[返回全部省份]',
+    citys:['杭州', '衢州', '湖州', '嘉兴', '宁波', '绍兴', '台州', '温州', '丽水', '金华', '舟山']
+  },
+  cityAll:{
+    t1:{
+      code:'A-G',
+      pros:['北京','安徽','重庆','福建','广东','广西','甘肃','贵州']
+    },
+    t2:{
+      code:'H-J',
+      pros:['河北','河南','海南','湖北','湖南','黑龙江','吉林','江苏','江西']
+    },
+    t3:{
+      code:'L-S',
+      pros:['辽宁','内蒙古','宁夏','青海','上海','四川','山东','山西','陕西']
+    },
+    t4:{
+      code:'T-Z',
+      pros:['天津','新疆','西藏','云南','浙江']
+    }
+  }
+}
 const navInfo = ['全部产品服务', '首页', '移动商城', '网上营业厅', '我的移动', '服务中心']
 
 
@@ -319,12 +344,21 @@ const funData = {
   pricesInfo: ["30元", "50元", "100元", "300元", "其他"],
   fluxInfo: ["1G","2G","3G","5G","100G"]
 }
+
+const swData = {
+   tImage:'proTitle.jpg',
+   proImages:[{img:'pro_0',title1:'流量业务',title1:'优惠享流量'}, {img:'pro_1',title1:'流量可选包',title1:'流量随心选'},{img:'pro_2',title1:'移动光宽带',title1:'足不出户 轻松办理'},{img:'pro_3',title1:'月末流量包',title1:'10元包2GB月末流量'},{img:'pro_4',title1:'5G看移动',title1:'高速率、低时延、大容量'}]
+}
+
+
 export {
   searchDate,
   tipList,
+  cityData,
   navInfo,
   banners,
   busiBtns,
   boxData,
-  funData
+  funData,
+  swData
 }

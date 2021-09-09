@@ -9,7 +9,7 @@ import Axios from 'axios'  //导入axios
 //将axios挂载到原型上
 
 import ElementUI from 'element-ui'
-// import Vant from 'vant'
+
 import 'element-ui/lib/theme-chalk/index.css'
 
 import '@/style/base.scss'
