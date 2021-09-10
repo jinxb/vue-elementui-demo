@@ -1,5 +1,5 @@
 import request from "./request";
-import { searchDate, tipList, cityData, navInfo, banners, busiBtns, boxData, funData, swData} from './data'
+import { searchDate, tipList, cityData, navInfo, banners, busiBtns, boxData, funData, swData, stairsData} from './data'
 
 
 class HomeApi {
@@ -65,6 +65,13 @@ class HomeApi {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve({ swData })
+      }, 500)
+    })
+  }
+  getStairsDataInfo() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve({ stairsData })
       }, 500)
     })
   }
