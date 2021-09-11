@@ -1,5 +1,5 @@
 {
-  "name": "hy-vue-temp",
+  "name": "jinxb",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,6 +14,7 @@
     "sass-loader": "^8.0.2",
     "vue": "^2.6.11",
     "vue-awesome-swiper": "^4.1.1",
+    "vue-lazyload": "^1.3.3",
     "vue-router": "^3.4.7",
     "vuex": "^3.5.1"
   },

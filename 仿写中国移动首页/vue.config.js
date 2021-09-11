@@ -1,4 +1,12 @@
 module.exports = {
+  chainWebpack: config => {
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].title= '中国移动官方网站'
+        return args
+      })
+  },
   configureWebpack: {
     resolve: {
       alias: {
@@ -8,6 +16,7 @@ module.exports = {
         'assets': '@/assets',
         'services': '@/services',
         'pages': '@/pages',
+        'utils': '@/utils',
       },
     }
   },

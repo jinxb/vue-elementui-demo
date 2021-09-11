@@ -13,7 +13,7 @@ class HomeApi {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve({ searchDate, tipList })
-      }, 2000)
+      }, 500)
     })
   }
   // tabcontrol
@@ -72,7 +72,7 @@ class HomeApi {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve({ stairsData })
-      }, 500)
+      }, 1000)
     })
   }
 }

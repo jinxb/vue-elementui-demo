@@ -14,7 +14,7 @@
           type="text"
           v-for="item in stairsData[4].lastList"
           :key="item.id"
-          :class="['last',{all:item === '全部'}]"
+          :class="['last', { all: item === '全部' }]"
           >{{ item }}</el-button
         >
       </el-row>
@@ -22,24 +22,52 @@
     <div class="sec_con">
       <el-container>
         <el-aside class="col_1">
-          <div class="box1">
+          <div
+            :class="[
+              { box1: stairsData[0].f_1[1].t1 ? true : false },
+              { box1_1: stairsData[0].f_1[1].t1 ? false : true },
+            ]"
+          >
+            <div v-if="stairsData[0].f_1[0].t1">
+              <h4>
+                {{ stairsData[0].f_1[0].t1 }} <br />
+                {{ stairsData[0].f_1[0].t1_1 }}
+              </h4>
+              <p>{{ stairsData[0].f_1[0].t2 }}</p>
+              <span>{{ stairsData[0].f_1[0].price }}</span>
+            </div>
             <el-image
               :src="`${require(`assets/img/${stairsData[0].f_1[0].img[0]}.jpg`)}`"
+              lazy
+              @load="imgLoad"
             >
               <div slot="placeholder" class="image-slot">
-                加载中<span class="dot">...</span>
+                <img :src="require('assets/img/zhanweitu.jpg')" alt="" />
               </div>
             </el-image>
           </div>
-          <div class="box2">
+          <div :class="{ box2: stairsData[0].f_1[1].t1 ? true : false }">
             <div v-if="stairsData[0].f_1[1].t1">
               <h4>{{ stairsData[0].f_1[1].t1 }}</h4>
               <p>{{ stairsData[0].f_1[1].t2 }}</p>
               <el-image
                 :src="`${require(`assets/img/${stairsData[0].f_1[1].img[0]}.jpg`)}`"
+                lazy
               >
                 <div slot="placeholder" class="image-slot">
-                  加载中<span class="dot">...</span>
+                  <img :src="require('assets/img/pic180_140.jpg')" alt="" />
+                </div>
+              </el-image>
+            </div>
+            <div v-else class="box2_3">
+              <el-image
+                :src="`${require(`assets/img/${item}.jpg`)}`"
+                v-for="item in stairsData[0].f_1[1].img"
+                :key="item.id"
+                lazy
+              >
+                <div slot="placeholder" class="image-slot">
+                  <img :src="require('assets/img/pic95_50.jpg')" alt="" />
                 </div>
               </el-image>
             </div>
@@ -49,10 +77,10 @@
           <div class="box3" v-for="item in stairsData[1].f_2" :key="item.id">
             <h4>{{ item.t1 }}</h4>
             <p>{{ item.t2 }}</p>
-            <!-- <span v-if="price"></span> -->
-            <el-image :src="`${require(`assets/img/${item.img[0]}.jpg`)}`">
+            <span v-if="item.price">{{ item.price }}</span>
+            <el-image :src="`${require(`assets/img/${item.img[0]}.jpg`)}`" lazy>
               <div slot="placeholder" class="image-slot">
-                加载中<span class="dot">...</span>
+                <img :src="require('assets/img/pic240_120.jpg')" alt="" />
               </div>
             </el-image>
           </div>
@@ -63,10 +91,13 @@
             <div class="box3" v-for="item in stairsData[2].f_3" :key="item.id">
               <h4>{{ item.t1 }}</h4>
               <p>{{ item.t2 }}</p>
-              <!-- <span v-if="price"></span> -->
-              <el-image :src="`${require(`assets/img/${item.img[0]}.jpg`)}`">
+              <span v-if="item.price">{{ item.price }}</span>
+              <el-image
+                :src="`${require(`assets/img/${item.img[0]}.jpg`)}`"
+                lazy
+              >
                 <div slot="placeholder" class="image-slot">
-                  加载中<span class="dot">...</span>
+                  <img :src="require('assets/img/pic240_120.jpg')" alt="" />
                 </div>
               </el-image>
             </div>
@@ -76,9 +107,10 @@
             <p>{{ stairsData[2].f_3[0].t2 }}</p>
             <el-image
               :src="`${require(`assets/img/${stairsData[2].f_3[0].img[0]}.jpg`)}`"
+              lazy
             >
               <div slot="placeholder" class="image-slot">
-                加载中<span class="dot">...</span>
+                <img :src="require('assets/img/pic240_280.jpg')" alt="" />
               </div>
             </el-image>
           </div>
@@ -87,10 +119,10 @@
           <div class="box3" v-for="item in stairsData[3].f_4" :key="item.id">
             <h4>{{ item.t1 }}</h4>
             <p>{{ item.t2 }}</p>
-            <!-- <span v-if="price"></span> -->
-            <el-image :src="`${require(`assets/img/${item.img[0]}.jpg`)}`">
+            <span v-if="item.price">{{ item.price }}</span>
+            <el-image :src="`${require(`assets/img/${item.img[0]}.jpg`)}`" lazy>
               <div slot="placeholder" class="image-slot">
-                加载中<span class="dot">...</span>
+                <img :src="require('assets/img/pic240_120.jpg')" alt="" />
               </div>
             </el-image>
           </div>
@@ -114,11 +146,15 @@ export default {
   mounted() {},
   computed: {},
   data() {
-    return {
-      lastList: ["全部", "提速降费"],
-    };
+    return {};
   },
   components: {},
+  methods: {
+     imgLoad() {
+        // 判断, 所有的图片都加载完了, 那么进行一次回调就可以了.
+          this.$emit('imageload');
+	    }
+  },
 };
 </script>
 
@@ -132,7 +168,7 @@ export default {
   height: 67px;
   margin: 0 auto;
   background: #ffffff;
-  .all{
+  .all {
     color: rgb(227, 0, 119);
   }
   .el-link.is-underline:hover:after {
@@ -180,6 +216,55 @@ export default {
       width: 475px;
       height: 325px;
     }
+  }
+  .box1_1 {
+    width: 475px;
+    height: 360px;
+    position: relative;
+    border-bottom: 1px solid #e8e8e8;
+    h4 {
+      float: left;
+      width: 200px;
+      padding: 25px 0 0 30px;
+      font: 100 22px/34px "microsoft yahei";
+      color: #222222;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    p {
+      float: left;
+      width: 220px;
+      padding: 13px 0 0 30px;
+      font: 14px/14px "microsoft yahei";
+      color: #808080;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    span {
+      display: block;
+      float: left;
+      width: 220px;
+      padding: 40px 0 0 30px;
+      font: 24px/24px "microsoft yahei";
+      color: #e40077;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .el-image {
+      display: block;
+      width: 235px;
+      height: 360px;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+    }
+  }
+  .box2_3 {
+    width: 475px;
+    height: 105px;
   }
   .box2 {
     width: 475px;
@@ -233,6 +318,16 @@ export default {
       padding: 10px 15px 0px;
       font: 14px / 16px "microsoft yahei";
       color: rgb(128, 128, 128);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    span {
+      display: block;
+      width: 210px;
+      padding: 10px 15px 0;
+      font: 16px/16px "microsoft yahei";
+      color: #e40077;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
