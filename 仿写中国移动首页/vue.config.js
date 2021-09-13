@@ -21,9 +21,9 @@ module.exports = {
     }
   },
   devServer: {
-    proxy: {//配置跨域
+    proxy: {
         '/api': {
-            target: 'http://www.10086.cn',
+            target: 'http://117.136.190.162:80',
             ws: true,
             changOrigin: true,
             pathRewrite: {

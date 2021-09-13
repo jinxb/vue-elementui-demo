@@ -373,8 +373,37 @@ const stairsData = {
     { f_3: [{ img: ['f3_c2_0'], t1: 'Redmi Note10', t2: 'Redmi Note10 5G手机', price: '1,049元' }, { img: ['f3_c2_1'], t1: 'vivo X60 pro', t2: 'vivo X60 pro 5G手机', price: '3,898元' }] },
     { f_4: [{ img: ['f3_c3_0'], t1: '红米Note9', t2: '5G手机', price: '1,899元' }, { img: ['f3_c3_1'], t1: '红米Redmi 9A', t2: '4G手机', price: '569元' }] },
     { title: '3F 手机专区', lastList: ["全部", "千元机", "信用购机"] }
+  ],
+  f4: [
+    { f_1: [{ img: ['f2_0'], t1: '', t2: '' }, { img: ['f2_1'], t1: '国际/港澳台业务', t2: '世界那么大 说走咱就走' }] },
+    { f_2: [{ img: ['f2_c1_0'], t1: '家庭亲情网', t2: '家庭沟通专享，亲情欢乐随行' }, { img: ['f2_c1_1'], t1: '宽带办理', t2: '百兆宽带 更快更好' }] },
+    { f_3: [{ img: ['f2_c2_0'], t1: '购机盛宴', t2: '各种机型任您选' }, { img: ['f2_c2_1'], t1: '流量小时套餐', t2: '即开即用' }], },
+    { f_4: [{ img: ['f2_c3_0'], t1: '电子发票', t2: '免您奔波之苦' }, { img: ['f2_c3_1'], t1: '月末流量包', t2: '立即办理' }] },
+    { title: '4F 智能硬件', lastList: ["全部","智能品质生活"] }
+  ],
+  f5: [
+    { f_1: [{ img: ['f3_0'], t1: 'iphone12', t1_1: '5G手机', t2: '信用购机享直降', price: '5,299元' }, { img: ['f3_1', 'f3_2', 'f3_3', 'f3_4', 'f3_5', 'f3_6', 'f3_7', 'f3_8', 'f3_9', 'f3_10'], t1: '', t2: '' }] },
+    { f_2: [{ img: ['f3_c1_0'], t1: '畅享20 Pro', t2: '5G手机', price: '1,899元' }, { img: ['f3_c1_1'], t1: 'OPPO Reno5', t2: '5G手机', price: '2,149元' }] },
+    { f_3: [{ img: ['f3_c2_0'], t1: 'Redmi Note10', t2: 'Redmi Note10 5G手机', price: '1,049元' }, { img: ['f3_c2_1'], t1: 'vivo X60 pro', t2: 'vivo X60 pro 5G手机', price: '3,898元' }] },
+    { f_4: [{ img: ['f3_c3_0'], t1: '红米Note9', t2: '5G手机', price: '1,899元' }, { img: ['f3_c3_1'], t1: '红米Redmi 9A', t2: '4G手机', price: '569元' }] },
+    { title: '5F 咪咕娱乐', lastList: ["全部", "王者荣耀", "巴士拉银匠哈桑的故事","一生所爱"] }
   ]
 }
+
+const fList = [
+  { s1: "1F", s2: "享优惠" },
+  { s1: "2F", s2: "业务推荐" },
+  { s1: "3F", s2: "手机专区" },
+  { s1: "4F", s2: "智能硬件" },
+  { s1: "5F", s2: "咪咕娱乐" },
+  { s1: "返回顶部" },
+]
+
+const rList = [
+  {img:'kf1',text:'在线咨询'},
+  {img:'kf2',text:'常见问题'},
+  {img:'kf3',text:'投诉建议'}
+]
 export {
   searchDate,
   tipList,
@@ -385,5 +414,7 @@ export {
   boxData,
   funData,
   swData,
-  stairsData
+  stairsData,
+  fList,
+  rList
 }

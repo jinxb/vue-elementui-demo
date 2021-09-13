@@ -1,13 +1,13 @@
 import request from "./request";
-import { searchDate, tipList, cityData, navInfo, banners, busiBtns, boxData, funData, swData, stairsData} from './data'
+import { searchDate, tipList, cityData, navInfo, banners, busiBtns, boxData, funData, swData, stairsData, fList, rList} from './data'
 
 
 class HomeApi {
-  getHomeNavList() {
-    return request({
-      url: 'zj_head/zj/5001257_209_617.json'
-    })
-  }
+  // getHomeNavList() {
+  //   return request({
+  //     url: 'zj_head/zj/5001257_209_617.json'
+  //   })
+  // }
   // search
   getSearchInfo() {
     return new Promise(resolve => {
@@ -73,6 +73,13 @@ class HomeApi {
       setTimeout(() => {
         resolve({ stairsData })
       }, 1000)
+    })
+  }
+  getMenusDataInfo(){
+    return new Promise(resolve => {
+      setTimeout(()=>{
+        resolve({ fList,rList })
+      },500)
     })
   }
 }

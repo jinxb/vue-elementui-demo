@@ -5,6 +5,7 @@
     <home-swiper></home-swiper>
     <home-pro-sw></home-pro-sw>
     <home-content ref="con" :positionY='scrollTop'></home-content>
+    <img src="~assets/img/dibu.png" alt="" width="1519px">
   </div>
 </template>
 

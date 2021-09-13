@@ -2,8 +2,8 @@
   <div class="menu">
     <el-row>
       <el-button
-        v-for="(o, index) in ls"
-        :key="o.id"
+        v-for="(item, index) in fList"
+        :key="item.id"
         :class="[
           'menu_item',
           { back: index === 5 },
@@ -12,7 +12,8 @@
         ]"
         @mouseenter.native="handleActive(index)"
         @mouseleave.native="handleActive()"
-        >{{ index === currentIndex || index === showColor ? o.s2 : o.s1 }}</el-button
+        @click="clickStairs(index)"
+        >{{ index === currentIndex || index === showColor ? item.s2 : item.s1 }}</el-button
       >
     </el-row>
   </div>
@@ -22,18 +23,18 @@
 // 通过滚动位置 判断1f是否到了 到了 就给flag为true
 export default {
   name: "HMenu",
+  props:{
+    fList:{
+      type: Array,
+      default:()=>{
+        return []
+      }
+    }
+  },
   data() {
     return {
       currentIndex: null,
       showColor: null,
-      ls: [
-        { s1: "1F", s2: "享优惠" },
-        { s1: "2F", s2: "业务推荐" },
-        { s1: "3F", s2: "手机专区" },
-        { s1: "4F", s2: "智能硬件" },
-        { s1: "5F", s2: "咪咕娱乐" },
-        { s1: "返回顶部" },
-      ],
     };
   },
   methods: {
@@ -44,6 +45,10 @@ export default {
       } else {
         this.showColor = null;
       }
+    },
+    clickStairs(index) {
+      this.currentIndex = index;
+      this.$emit('clickStairs',this.currentIndex);
     },
   },
 };
