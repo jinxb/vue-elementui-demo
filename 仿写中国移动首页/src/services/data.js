@@ -2,6 +2,8 @@
 // HomeHead
 const searchDate = [
   { value: "三全鲜食（北新泾店）", address: "长宁区新渔路144号" },
+  { value: "三旺角茶餐厅", address: "上海市普陀区真北路988号创邑金沙谷6号楼113" },
+  { value: "三胖贡茶", address: "上海市长宁区金钟路968号1幢18号楼一层商铺18" },
   {
     value: "Hot honey 首尔炸鸡（仙霞路）",
     address: "上海市长宁区淞虹路661号",

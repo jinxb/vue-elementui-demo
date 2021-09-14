@@ -11,10 +11,10 @@
       <div class="indexbox">
         <h3>{{ item.title1 }}</h3>
         <p>{{ item.title1 }}</p>
-        <el-image
+        <img
           class="st"
           :src="require(`assets/img/${item.img}.png`)"
-        ></el-image>
+        ></img>
       </div>
     </swiper-slide>
     <!-- <swiper-slide v-for="item in proImages" :key="item.id">
@@ -55,7 +55,7 @@ export default {
     return {
       swiperOption: {
         autoplay: {
-          delay: 1500,
+          delay: 1000,
           disableOnInteraction: false,
         },
         // slidesPerView: "auto",

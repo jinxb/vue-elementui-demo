@@ -12,6 +12,7 @@
         placeholder="全球通尊享"
         @select="handleSelect"
         :trigger-on-focus="false"
+        :debounce=10
       >
       </el-autocomplete>
       <el-button :class="['searBtn', { patch2: pNum === 2 }]"></el-button>
