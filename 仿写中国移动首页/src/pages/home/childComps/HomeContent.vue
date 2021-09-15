@@ -101,14 +101,14 @@ export default {
           this.currentIndex = i;
           this.$refs.menu.currentIndex = this.currentIndex;
         } else {
-          console.log("11");
+          console.log('出bug');
         }
       }
     },
     clickStairs(index) {
       window.scrollTo({
         top: this.themeTopYs[index] - 40,
-        behavior: "instant",
+        behavior: "smooth", // instant
       });
     },
   },

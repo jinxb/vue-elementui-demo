@@ -1,6 +1,5 @@
 <template>
-  <div class="slide_content" :style="`background-color:${bgc};transition:background 1s cubic-bezier(0.12, 1.36, 1, 1) 0s;
-	-webkit-transition:background 1s cubic-bezier(0.12, 1.36, 1, 1) 0s;`">
+  <div class="slide_content" :style="`background-color:${bgc};transition:background 1s cubic-bezier(0.14, 1.46, 1, 1) 0s;`">
     <div class="nav1200">
       <swiper :banner='banners' @bgcIndex='handleBgc'></swiper>
       <nav-business class="navBusi"></nav-business>

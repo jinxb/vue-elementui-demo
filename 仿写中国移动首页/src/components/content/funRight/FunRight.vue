@@ -151,6 +151,7 @@ export default {
   }
   .el-card {
     border: none;
+    cursor: pointer;
   }
   .clearfix {
     zoom: 1;

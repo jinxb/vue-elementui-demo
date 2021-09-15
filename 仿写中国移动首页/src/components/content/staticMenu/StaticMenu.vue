@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="topImg">
-      <img class="kf" alt="扫黄打非举报" src="~assets/img/staticM1.jpg" />
+      <a href="#">
+        <img class="kf" alt="扫黄打非举报" src="~assets/img/staticM1.jpg" />
+      </a>
     </div>
     <div class="bMenu">
       <el-row v-if="rList.length" v-for="(item, index) in rList" :key="item.id">
@@ -71,6 +73,7 @@ export default {
     float: right;
     border-radius: 0%;
     border: none;
+    border-bottom: 1px solid #fff;
   }
   .el-button + .el-button {
     margin: 0;

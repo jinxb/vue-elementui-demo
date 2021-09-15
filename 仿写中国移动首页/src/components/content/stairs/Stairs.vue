@@ -163,6 +163,12 @@ export default {
   overflow: visible;
   box-sizing: content-box;
 }
+.el-button--text{
+  color: #666;
+}
+.el-button--text:hover{
+  color: #409EFF;
+}
 .sec_h {
   width: 100%;
   height: 67px;
@@ -191,6 +197,9 @@ export default {
   }
 }
 .sec_con {
+  cursor: pointer;
+
+
   width: 1198px !important;
   height: 466px;
   margin: 0 auto;
@@ -215,6 +224,7 @@ export default {
       display: block;
       width: 475px;
       height: 325px;
+      cursor: pointer;
     }
   }
   .box1_1 {
